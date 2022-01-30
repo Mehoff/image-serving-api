@@ -5,7 +5,7 @@ import path from 'path';
 import { ImageClass, ImageModel } from '../models/imageModel';
 
 const prepareAutoUploadImages = () => {
-  const autoLoadFolderPath = __dirname + '/www/uploads/autoUpload';
+  const autoLoadFolderPath = path.join(__dirname, '../www/uploads/autoUpload');
 
   fs.readdir(autoLoadFolderPath, async (err, files) => {
     if (err) {
