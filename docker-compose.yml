@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 services:
   mongodb:
@@ -20,6 +20,8 @@ services:
     env_file: .env
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/node.template
+      - /etc/letsencrypt/live/imageservingapi.tk/fullchain.pem:/etc/nginx/cert.pem
+      - /etc/letsencrypt/live/imageservingapi.tk/privkey.pem:/etc/nginx/key.pem
     ports:
       - '${NGINX_PORT}:80'
     # Copy rename config to default.conf
